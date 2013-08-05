@@ -1,15 +1,16 @@
 class Word < ActiveRecord::Base
-  # Remember to create a migration!
-  def sort_word(word)
-    word.split("").sort.join
+
+  def find_anagram_matches
+    Word.where(sorted_letters: self.sorted_letters)
   end
 
-  def self.anagrams(word)
-    @answer = []
-    Words.all.each do |i|
-      if i[:sorted_letters] == sort_word(word)
-        @answer << i[:word]
-      end
+  def anagrams
+    answer = []
+    self.find_anagram_matches.each do |i|
+      answer << i.word
     end
+    answer
   end
+
 end
+
