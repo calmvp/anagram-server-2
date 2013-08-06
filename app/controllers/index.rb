@@ -10,5 +10,9 @@ get '/:word' do
   erb :index
 end
 
+post '/' do
+  redirect "/#{params[:user_input]}"
+end
+
 
 

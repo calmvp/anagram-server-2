@@ -1,10 +1,16 @@
 <div class="container">
   <h1>Show a list of anagrams for <%= @word %>: </h1>
   <body>
+      <form action="/" method="post">
+      <br>
+      <input type="text" name="user_input">
+      <input type="submit" value="Enter">
+    </form>
 
-    <% @found.each do |element| %>
-    <%= element.word %>
+    <% if @found %>
+      <% @found.each do |element| %>
+        <%= element.word %>
+      <% end %>
     <% end %>
-
   </body>
 </div>
