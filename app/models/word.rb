@@ -1,4 +1,6 @@
 class Word < ActiveRecord::Base
+  
+
 
   def find_anagram_matches
     Word.where(sorted_letters: self.sorted_letters)
@@ -13,4 +15,3 @@ class Word < ActiveRecord::Base
   end
 
 end
-
