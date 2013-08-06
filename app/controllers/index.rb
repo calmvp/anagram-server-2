@@ -6,7 +6,7 @@ end
 get '/:word' do
   @word = params[:word]
   @sorted = @word.downcase.split('').sort.join
-  @found = Word.where(sorted_letters: @sorted)
+  @found = Word.anagrams(@sorted)
   erb :index
 end
 
